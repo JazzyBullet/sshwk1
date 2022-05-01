@@ -16,16 +16,16 @@ def get_peheader_features(path):
     peheader_features = []
     try:
         pe = pefile.PE(path)
-    except pefile.PEFormatError:
-        pass
-    else:
         if hasattr(pe, 'OPTIONAL_HEADER'):
             cur = pe.OPTIONAL_HEADER
             for it in cur.__keys__:
                 peheader_features += [cur.__getattribute__(it[0])]
-    print(peheader_features)
-    print("Extracted {0} PE Headers from {1}".format(len(peheader_features), path))
-    return peheader_features
+        print(peheader_features)
+        print("Extracted {0} PE Headers from {1}".format(len(peheader_features), path))
+        return peheader_features
+    
+    except pefile.PEFormatError:
+        return [0]*30
 
 
 def scan_file(path):

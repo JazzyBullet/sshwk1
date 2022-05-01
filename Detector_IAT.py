@@ -35,6 +35,7 @@ def get_IAT_features(path, hasher):
     hashed_features = hashed_features[0]
     # print("Finished Extract String Feature")
     # return hashed string features
+    # print(hashed_features)
     print("Extracted {0} function names from {1}".format(len(IAT_features), path))
     return hashed_features
 
